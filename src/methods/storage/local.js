@@ -1,3 +1,21 @@
+/**
+ * @type get 
+ * @param {string/number} 
+ * @desc 键名/下标
+ * @type set
+ * @param {key,value} 
+ * @desc 键名，键值
+ * @type remove
+ * @param {key}
+ * @desc 键名
+ * @type clear
+ * @desc 清除
+ * @type length
+ * @desc 长度
+ * @type each
+ * @param {function(item,index)} 
+ * @desc 方法(项，标)
+ */
 const local = {
     get:(key)=>{
         //当传入的值为number类型时
@@ -51,4 +69,4 @@ const local = {
     },
 }
 
-export default local
+module.exports = local

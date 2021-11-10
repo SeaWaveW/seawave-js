@@ -1,4 +1,9 @@
-const allEmpty = function (oldObj) {
+/**
+ * @method 对象是否全空
+ * @param {object}
+ * @returns {object}
+ */
+function allEmpty (oldObj) {
     let extent = Object.keys(oldObj).length
     let newObj = Array.isArray(oldObj) ? [] : {}
     for (let key in oldObj) {
@@ -17,4 +22,4 @@ const allEmpty = function (oldObj) {
     return !Boolean(extent)
 }
 
-export default allEmpty
+module.exports = allEmpty;

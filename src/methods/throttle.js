@@ -1,4 +1,11 @@
-const throttle = function (incident,time=1000){
+/**
+ * @method 节流函数
+ * @desc  使用 btn.onclick = throttle(ff,2000)
+ * @param {*} incident 事件
+ * @param {*} time 间隔
+ * @returns 
+ */
+function throttle (incident,time=1000){
     // 1.定义节流函数的钥匙
     let throttleKey = true;
     // 2.通过闭包保存钥匙，并返回下方函数
@@ -16,6 +23,4 @@ const throttle = function (incident,time=1000){
     }
 }
 
-export default throttle
-
-// btn.onclick = throttle(ff,2000)
+module.exports = throttle

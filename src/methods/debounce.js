@@ -1,4 +1,10 @@
-const debounce = function (incident,time = 1000){
+/**
+ * @desc 使用 btn.onclick = debounce(ff,2000)
+ * @param {*} incident 事件
+ * @param {*} time 间隔
+ * @returns 
+ */
+function debounce (incident,time = 1000){
     // 1.钥匙
     let debounceKey = null;
     // 2.使用闭包保存钥匙，并返回下方函数
@@ -13,5 +19,4 @@ const debounce = function (incident,time = 1000){
     }
 }
 
-export default debounce
-// btn.onclick = debounce(ff,2000)
+module.exports = debounce

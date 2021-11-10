@@ -1,4 +1,10 @@
-const deepClone = function ( cloneObject ){
+/**
+ * @method 深度克隆
+ * @desc deepClone( 所需要深度拷贝的对象或数组 )
+ * @param {*} cloneObject 对象/数组
+ * @returns 
+ */
+function deepClone ( cloneObject ){
     // ①判断传进来的是 数组 还是 对象
     let cloning = Array.isArray( cloneObject ) ? [] : {};
     // ②判断是否是对象
@@ -23,6 +29,4 @@ const deepClone = function ( cloneObject ){
     return cloning
 }
 
-export default deepClone
-
-// let 新对象或新数组的名字 = deepClone( 所需要深度拷贝的对象或数组 )
+module.exports = deepClone

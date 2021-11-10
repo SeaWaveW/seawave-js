@@ -1,0 +1,28 @@
+{
+  "name": "sw-js",
+  "version": "1.0.0",
+  "description": "这是一个以少量代码实现完美功能的js工具库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config config/webpack.config.js --progress --color"
+  },
+  "keywords": [
+    "utils",
+    "tools"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeaWaveW/seawave-js.git"
+  },
+  "author": "seawave",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeaWaveW/seawave-js/issues"
+  },
+  "homepage": "https://github.com/SeaWaveW/seawave-js#readme",
+  "dependencies": {
+    "webpack": "^5.62.2",
+    "webpack-cli": "^4.7.2"
+  }
+}
