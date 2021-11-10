@@ -37,6 +37,7 @@ const httpList = [
     { code:'504',type:'网关超时', desc:'未及时从上游服务器接收请求' },
     { code:'505',type:'http错误', desc:'HTTP版本不受支持' },
 ]
+
 /**
  * @method 请求网络状态
  * @param {String} 
@@ -67,3 +68,4 @@ const httpMap = ( code ) => {
 }
 
 module.exports = httpMap
+

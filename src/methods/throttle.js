@@ -15,11 +15,11 @@ function throttle (incident,time=1000){
         if(!throttleKey){ return }
         //     true时继续往下走
         // 4.先把钥匙设为false，以防重复点击时发送多次请求
-        throttleKey = false
+        throttleKey = false;
         // 5.发送请求
-        incident.call(this,arguments)
+        incident.call(this,arguments);
         // 6.执行延时定时器（不清除）,只等规定时间后才能再次点击发送请求
-        setTimeout( _ => { throttleKey = true } , time )
+        setTimeout( _ => { throttleKey = true } , time );
     }
 }
 
