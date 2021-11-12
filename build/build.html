@@ -11,6 +11,12 @@
     
 </body>
 <script>
-    console.log(window)
+    console.error(window['sw-js'])
+    var swJs = window['sw-js'].default
+    var a = {s:'1'}
+    var b = a
+    var {deepClone} = swJs
+    var c = deepClone(a)
+    console.error(a === b,a===c,'deepClone',deepClone)
 </script>
 </html>
