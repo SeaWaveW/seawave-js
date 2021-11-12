@@ -19,4 +19,4 @@ function debounce (incident,time = 1000){
     }
 }
 
-module.exports = debounce
+export default debounce

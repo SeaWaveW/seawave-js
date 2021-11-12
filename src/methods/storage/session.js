@@ -37,7 +37,7 @@ const session = {
         //否则
         try{
             return JSON.parse(sessionStorage.getItem(key))
-        }catch{
+        }catch(e){
             return sessionStorage.getItem(key)
         }
     },
@@ -72,4 +72,4 @@ const session = {
     }
 }
 
-module.exports = session
+export default session

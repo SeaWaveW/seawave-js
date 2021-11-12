@@ -67,5 +67,5 @@ const httpMap = ( code ) => {
     return item
 }
 
-module.exports = httpMap
+export default httpMap
 

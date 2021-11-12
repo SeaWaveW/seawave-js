@@ -37,7 +37,7 @@ const local = {
         //否则
         try{
             return JSON.parse(localStorage.getItem(key))
-        }catch{
+        }catch(e){
             return localStorage.getItem(key)
         }
     },
@@ -69,4 +69,4 @@ const local = {
     },
 }
 
-module.exports = local
+export default local

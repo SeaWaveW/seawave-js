@@ -56,4 +56,4 @@ const polling = {
         })
 */
 
-module.exports = polling
+export default polling

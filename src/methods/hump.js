@@ -36,4 +36,4 @@ const hump = (name,split = '-') => {
     return newList.join('')
 }
 
-module.exports = hump
+export default hump

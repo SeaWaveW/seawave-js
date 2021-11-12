@@ -22,4 +22,4 @@ function allEmpty (oldObj) {
     return !Boolean(extent)
 }
 
-module.exports = allEmpty;
+export default allEmpty

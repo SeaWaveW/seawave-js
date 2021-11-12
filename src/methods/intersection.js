@@ -10,4 +10,4 @@ const intersection = ( arr1 = [], arr2 = [] ) => {
     return results
 }
 
-module.exports = intersection
+export default intersection

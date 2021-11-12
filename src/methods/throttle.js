@@ -23,4 +23,4 @@ function throttle (incident,time=1000){
     }
 }
 
-module.exports = throttle
+export default throttle

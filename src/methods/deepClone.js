@@ -29,4 +29,4 @@ function deepClone ( cloneObject ){
     return cloning
 }
 
-module.exports = deepClone
+export default deepClone

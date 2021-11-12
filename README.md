@@ -12,7 +12,7 @@ debounce(ff,2000)
 
 ## hump
 ```
-const test1 = 'a-b' => hump(test1,'-') => aB
+const test1 = 'a-b' => hump(test1,'-') => AB
 const test2 = 'aB' => hump(test1,'-') => 'a-b'
 ```
 

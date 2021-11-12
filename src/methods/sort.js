@@ -11,4 +11,4 @@ const sort = (list,flag) => {
     })
 }
 
-module.exports = sort
+export default sort
