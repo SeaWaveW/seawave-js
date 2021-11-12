@@ -53,10 +53,10 @@ const session = {
     clear: () => {
         sessionStorage.clear();
     },
-    length:( () => {
-        const arr = Object.keys(sessionStorage);
-        return arr.length
-    } )(),
+    // lengths:( () => {
+    //     const arr = Object.keys(sessionStorage);
+    //     return Array.isArray(arr) ? arr.length : 0
+    // } )(),
     each:(callback)=>{
         let arr = new Array();
         for(let i=0; i<stroage.session.length; i++){

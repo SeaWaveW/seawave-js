@@ -53,7 +53,7 @@ const local = {
     clear:()=>{
         localStorage.clear()
     },
-    length:localStorage.length,
+    // lengths:typeof localStorage === 'object' ? localStorage.length : 0,
     each:(callback)=>{
         let arr = new Array()
         for(let i=0; i<stroage.local.length; i++){

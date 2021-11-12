@@ -65,11 +65,11 @@ const cookie = {
             document.cookie = key+'='+' ;expires=' +date.toUTCString();
         }
     },
-    length:(()=>{
-        const cookies = document.cookie;
-        const cookieArr = cookies.split(';');
-        return cookieArr.length
-    })(),
+    // lengths:(()=>{
+    //     const cookies = document.cookie;
+    //     const cookieArr = cookies.split(';');
+    //     return Array.isArray(cookieArr) ? cookieArr.length : 0
+    // })(),
     each:(callback)=>{
         const cookies = document.cookie;
         const cookieArr = cookies.split(';');
