@@ -14,10 +14,12 @@ const start =  ( name,time,count,fc ) => {
         timer:null
     }
     item.timer = window.setInterval(() => {
-        count --
-        console.log(name)
-        if(count <= 0){
-            end(name)
+        if(count > 0){
+            count --
+            console.log(name)
+            if(count <= 0){
+                end(name)
+            }
         }
         if(typeof(item.fc) === 'function'){
             item.fc()
