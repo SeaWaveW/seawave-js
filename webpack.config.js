@@ -20,7 +20,15 @@ module.exports = {
     },
     // 第三方插件
     plugins: [
-        new UglifyJsPlugin() // 压缩
+        new UglifyJsPlugin({
+            uglifyOptions:{
+                warnings: false,
+                compress:{
+                    drop_debugger: true,
+                    drop_console: true
+                }
+            }
+        }) // 压缩
     ],
     // 在async函数外部使用await字段
     experiments: {

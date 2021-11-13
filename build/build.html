@@ -8,15 +8,19 @@
     <script src="./sw-js.js"></script>
 </head>
 <body>
-    
+    <button id="btn">事件</button>
 </body>
 <script>
     console.error(window['sw-js'])
     var swJs = window['sw-js'].default
-    var a = {s:'1'}
-    var b = a
-    var {deepClone} = swJs
-    var c = deepClone(a)
-    console.error(a === b,a===c,'deepClone',deepClone)
+    var polling = swJs.polling
+    var count = 0
+    polling.start('轮询',1000,50,function(){
+        count++
+        console.error('轮询次数',count)
+    })
+    document.getElementById('btn').onclick = function () {
+        polling.end('轮询')
+    }
 </script>
 </html>
