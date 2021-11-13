@@ -1,3 +1,4 @@
+const webpack = require("webpack")
 const path = require('path')
 const pkg = require('./package.json')
 const rootPath = path.resolve(__dirname,'./')
@@ -20,6 +21,7 @@ module.exports = {
     },
     // 第三方插件
     plugins: [
+        // 压缩
         new UglifyJsPlugin({
             uglifyOptions:{
                 warnings: false,
@@ -28,7 +30,9 @@ module.exports = {
                     drop_console: true
                 }
             }
-        }) // 压缩
+        }), 
+        // 头部版权
+        new webpack.BannerPlugin('author: SeaWaveW'),
     ],
     // 在async函数外部使用await字段
     experiments: {
