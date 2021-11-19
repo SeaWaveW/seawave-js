@@ -5,7 +5,7 @@ const rootPath = path.resolve(__dirname,'./')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
-    mode: 'none',
+    mode: 'production',
     // 入口点文件设置
     entry:path.resolve(rootPath,'src','index.js'),
     // 输出文件配置

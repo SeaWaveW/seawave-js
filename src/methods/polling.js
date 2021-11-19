@@ -43,10 +43,19 @@ const end = ( name ) => {
     containerList.splice(index,1)
     console.log('清除该轮询',name,containerList)
 }
-
+/**
+ * @method 清除所有轮询
+ */
+ const clear = () => {
+    containerList.forEach(item => {
+        window.clearInterval(item.timer)
+    })
+    containerList = []
+}
 const polling = {
     start,
-    end
+    end,
+    clear
 }
 
 /* 使用案例

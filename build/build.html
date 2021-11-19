@@ -13,14 +13,26 @@
 <script>
     console.error(window['sw-js'])
     var swJs = window['sw-js'].default
-    var polling = swJs.polling
     var count = 0
-    polling.start('轮询',1000,50,function(){
+    swJs.polling.start('轮询',1000,false,function(){
         count++
         console.error('轮询次数',count)
     })
+    swJs.polling.start('轮询2',1000,false,function(){
+        count++
+        console.error('轮询次数2',count)
+    })
     document.getElementById('btn').onclick = function () {
-        polling.end('轮询')
+        swJs.polling.clear()
     }
+    console.error(swJs.date.formatter('','yyyy-MM-dd HH:mm:ss'))
+    const ymObj = {
+        year:'2021',
+        month:'11'
+    }
+    console.warn(ymObj.year+'年'+ymObj.month+'月的天数为：' ,swJs.date.getMonthDay(ymObj.year,ymObj.month))
+    const arr1 = [1,2,3,4,5]
+    const arr2 = [2,5,0,1]
+    console.error(`arr1(${arr1})与arr2(${arr2})的交集为：`,swJs.intersection(arr1,arr2))
 </script>
 </html>
