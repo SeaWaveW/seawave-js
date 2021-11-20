@@ -1,3 +1,5 @@
+const dayUnit = 24 * 60 * 60 * 1000
+
 /**
  * @method 日期格式化
  * @param {String,String} 
@@ -66,11 +68,24 @@ const getTime = (val) => {
 const getMonthDay = (year,month) => {
     const max = new Date(year,month,0).getTime()
     const min = new Date(`${year}-${month}-01`)
-    const count = (max - min) / (24 * 60 * 60 * 1000)
+    const count = (max - min) / dayUnit
     return Math.ceil(count + 1)
+}
+/**
+ * @method 获取两个不同日期相差天数
+ * @param {String,String} 
+ * @desc  日期，日期
+ * @returns {Number}
+ */
+const getDifferDay = (d1,d2) => {
+    const nd1 = getTime(d1)
+    const nd2 = getTime(d2)
+    const d = nd1 >= nd2 ? nd1 - nd2 : nd2 - nd1
+    return parseInt(d / dayUnit)
 }
 export default {
     getTime,
     formatter,
-    getMonthDay
+    getMonthDay,
+    getDifferDay
 }

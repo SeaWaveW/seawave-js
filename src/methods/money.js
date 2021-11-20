@@ -1,5 +1,20 @@
+// 汉字的数字
+const cnNums = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖']
+// 基本单位
+const cnIntRadice = ['拾', '佰', '仟']
+// 对应整数部分扩展单位
+const cnIntUnits = ['万', '亿', '兆']
+// 对应小数部分单位
+const cnDecUnits = ['角', '分', '毫', '厘']
+// 整数金额时后面跟的字符
+const cnInteger = '整'
+// 整型完以后的单位
+const cnIntLast = '元'
+// 完整的中文数组
+const zhArr = [...cnNums,...cnIntRadice,...cnIntUnits,...cnDecUnits,...cnInteger,...cnIntLast]
+
 /**
- * @method 按千分符分割
+ * @method 金额按千分符分割
  * @param {String/Number,String} 
  * @desc  数值，头部符号
  * @returns {String}
@@ -11,24 +26,26 @@ const thousandSeparator = (val,symbol = '') => {
     return `${symbol}${parts.join('.')}`
 }
 /**
- * @method 转中文金额
+ * @method 千分符转金额
+ * @param {String} 
+ * @desc  数值
+ * @returns {String}
+ */
+ const thousandSeparatorReversal = (money) => {
+  if (!money && money !== 0) return
+  return money.replace(/\_/g,'').replace(/\./g,'_').replace(/[\u0391-\uFFE5]/g,'').replace(/\W/g,'').replace(/[a-zA-Z]/g,'').replace(/\_/g,'.')
+}
+/**
+ * @method 金额转中文
  * @param {String/Number} 
  * @desc  数值
  * @returns {String}
  */
 const digitUp = (money) => {
-    // 汉字的数字
-    let cnNums = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖']
-    // 基本单位
-    let cnIntRadice = ['', '拾', '佰', '仟']
-    // 对应整数部分扩展单位
-    let cnIntUnits = ['', '万', '亿', '兆']
-    // 对应小数部分单位
-    let cnDecUnits = ['角', '分', '毫', '厘']
-    // 整数金额时后面跟的字符
-    let cnInteger = '整'
-    // 整型完以后的单位
-    let cnIntLast = '元'
+    const CnIntRadice = [...[''],...cnIntRadice]
+    console.error('CnIntRadice',CnIntRadice)
+    const CnIntUnits = [...[''],...cnIntUnits]
+    console.error('CnIntUnits',CnIntUnits)
     // 最大处理的数字
     let maxNum = 999999999999999.9999
     // 金额整数部分
@@ -76,10 +93,10 @@ const digitUp = (money) => {
           }
           // 归零
           zeroCount = 0
-          chineseStr += cnNums[parseInt(n)] + cnIntRadice[m]
+          chineseStr += cnNums[parseInt(n)] + CnIntRadice[m]
         }
         if (m === 0 && zeroCount < 4) {
-          chineseStr += cnIntUnits[q]
+          chineseStr += CnIntUnits[q]
         }
       }
       chineseStr += cnIntLast
@@ -101,14 +118,33 @@ const digitUp = (money) => {
     }
     return chineseStr
 }
-
+/**
+ * @method 中文转
+ * @param {String} 
+ * @desc  数值
+ * @returns {String}
+ */
+const digitLo = (money) => {
+  return money
+}
 /**
  * @method 金额方法
- * @param {String/Number,String} 
- * @desc  数值，符号
+ * @param {String/Number,String/false} 
+ * @desc  数值，符号(为false时转金额)
  * @returns {String}
  */
 export default (val,symbol = '') => {
-    const isChina = symbol.toUpperCase() === 'ZH' || symbol.toUpperCase() === 'CN' || symbol.toUpperCase() === 'CNY'
-    return isChina ? digitUp(val) : thousandSeparator(val,symbol)
+    if(typeof symbol === 'boolean' && !symbol){
+      const newVal = `${val}`
+      let boo = false
+      for(let i=0; i<newVal.length; i++){
+        if(boo) break;
+        boo = zhArr.includes(newVal[i])
+      }
+      return boo ? digitLo(val) : thousandSeparatorReversal(val)
+    }else if(['ZH','CN','CNY'].includes(symbol.toUpperCase())){
+      return digitUp(val)
+    }else {
+      return thousandSeparator(val,symbol)
+    }
 }
