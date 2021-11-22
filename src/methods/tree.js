@@ -8,12 +8,8 @@ const createdTree = (list = [], key = 'children', child = 'parentId', parent = '
     let parentList = []
     // 若是第一次则进行生成祖宗节点
     if(!oldList.length){
-        list.forEach((item,index) => {
-            // 若是无依赖标识则为祖宗节点
-            if(!item[child]){
-                parentList.push({...{},...item})
-            }
-        })
+        // 若是无依赖标识则为祖宗节点
+        parentList = list.filter(item => !item[child])
     }else {
         parentList = list
     }
@@ -27,7 +23,6 @@ const createdTree = (list = [], key = 'children', child = 'parentId', parent = '
         }
         // 再次进行判断，是否存在数构成项,若是存在则继续递归生成
         if(item[key] && item[key].length){
-            console.warn('再次进入生成树',newList)
             item[key] = createdTree(item[key],key,child,parent,newList)
         }
     })
@@ -42,7 +37,7 @@ const createdTree = (list = [], key = 'children', child = 'parentId', parent = '
  */
 const createdChildren = ( list = [], obj = {}, child = 'parentId', parent = 'id')  => {
     const newList = []
-    list.forEach((item,index) => {
+    list.forEach((item) => {
         if(item[child] === obj[parent]){
             // 添加为子项
             newList.push({
