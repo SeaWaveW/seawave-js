@@ -21,12 +21,12 @@
 const sum = (n1,n2) => {
     const numList = []
     const num1 = n1.toString().split('.')
-    let num1_0 = num1[0] && num1[0].length ? num1[0] : []
-    let num1_1 = num1[1] && num1[1].length ? num1[1] : []
+    let num1_0 = num1[0] && num1[0].length ? num1[0] : ''
+    let num1_1 = num1[1] && num1[1].length ? num1[1] : ''
 
     const num2 = n2.toString().split('.')
-    let num2_0 = num2[0] && num2[0].length ? num2[0] : []
-    let num2_1 = num2[1] && num2[1].length ? num2[1] : []
+    let num2_0 = num2[0] && num2[0].length ? num2[0] : ''
+    let num2_1 = num2[1] && num2[1].length ? num2[1] : ''
     // 补全阶段
     if(num1.length > 1 && num2.length > 1){
         if(num1_1.length > num2_1.length){
