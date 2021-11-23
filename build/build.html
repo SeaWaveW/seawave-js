@@ -8,6 +8,7 @@
     <script src="./sw-js.js"></script>
 </head>
 <body>
+    <div id="wrap">#wrap</div>
     <button id="btn">事件</button>
 </body>
 <script>
@@ -37,8 +38,9 @@
 
     const arr1 = [1,2,3,4,5]
     const arr2 = [2,5,0,1]
-    console.error(`arr1(${arr1})与arr2(${arr2})的交集为：`,swJs.intersection(arr1,arr2))
-
+    const arr3 = [{id:2},{id:4}]
+    const arr4 = [{id:0},{id:2}]
+    console.error(`arr1(${arr1})与arr2(${arr2})的交集为：${swJs.intersection(arr1,arr2)}`,`arr3与arr4的交集为：`,swJs.intersection(arr3,arr4,'id',(item1,item2) => { item1.cc = item2.id } ))
     const m = 1234
     console.warn(`金额：${m},对应的中文金额为：${swJs.money(m,'zh')},千分符为：${swJs.money(m,'$')},转金额：${swJs.money(swJs.money(m,'$'),false)}`)
 
@@ -135,6 +137,8 @@
     ]
     console.warn(`寻找最大最小：${swJs.maixn(arrAI1)},${swJs.maixn(arrAI1,false)},${swJs.maixn(arrAI2,'a')},${swJs.maixn(arrAI2,'a',false)}`)
 
-
+    const strlength = '哈1、s'
+    console.error(`strlength的长度为：${swJs.getLength(strlength,{cn:50})}`)
+    
 </script>
 </html>
