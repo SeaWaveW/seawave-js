@@ -1,5 +1,5 @@
-const request = null
 /*
+ request:封装的请求方法
  url : 指的是请求地址
  parmas:{
     fileName: 指的是文件下载名
@@ -9,7 +9,7 @@ const request = null
  method: 指的是请求方式
 */
 
-const download = (url, params = {}, type, method = 'get') => {
+const download = (request,url, params = {}, type, method = 'get') => {
   return new Promise((resolve) => {
     let option1 = {}
     let option2 = {}

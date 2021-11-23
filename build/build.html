@@ -113,10 +113,6 @@
         }
     }
     console.error(`obj11:${swJs.isNull(obj11)},obj22:${swJs.isNull(obj22)},obj33:${swJs.isNull(obj33)},obj44:${swJs.isNull(obj44)},obj55:${swJs.isNull(obj55)}`)
-    // const un = undefined
-    // const nan = NaN
-    // const nu = null
-    // console.warn(`undefined:${swJs.isNull(un)},NaN:${swJs.isNull(nan)},null:${swJs.isNull(nu)}`)
 
     const num11 = 15.11000
     const num22 = 2.89
@@ -124,5 +120,21 @@
 
     const arrSum = [1,2,33.1,4.2]
     console.warn(`cumsum累加：${swJs.cumsum(arrSum)}`)
+
+    const arrAI1 = [5,1,2,8,4]
+    const arrAI2 = [
+        {
+            a:1
+        },
+        {
+            a:0
+        },
+        {
+            a:2
+        }
+    ]
+    console.warn(`寻找最大最小：${swJs.maixn(arrAI1)},${swJs.maixn(arrAI1,false)},${swJs.maixn(arrAI2,'a')},${swJs.maixn(arrAI2,'a',false)}`)
+
+
 </script>
 </html>
