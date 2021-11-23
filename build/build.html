@@ -116,8 +116,8 @@
     }
     console.error(`obj11:${swJs.isNull(obj11)},obj22:${swJs.isNull(obj22)},obj33:${swJs.isNull(obj33)},obj44:${swJs.isNull(obj44)},obj55:${swJs.isNull(obj55)}`)
 
-    const num11 = 15.11000
-    const num22 = 2.89
+    const num11 = 15.01
+    const num22 = 2.020001
     console.error(`sum函数相加：${swJs.sum(num11,num22)}`)
 
     const arrSum = [1,2,33.1,4.2]
@@ -139,6 +139,13 @@
 
     const strlength = '哈1、s'
     console.error(`strlength的长度为：${swJs.getLength(strlength,{cn:50})}`)
+    
+    document.getElementById('btn').onclick = function () {
+        swJs.print('#wrap')
+    }
+    
+    let chars = 'asdasnk nkjnb bu85'
+    console.error('字符统计：',swJs.charStats(chars))
     
 </script>
 </html>
