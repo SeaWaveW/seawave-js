@@ -73,6 +73,7 @@
         console.error('树的回调：',parent,child)
     }
     console.error('生成树：',swJs.tree.createdTree(dataList1,'children','parentId','id',treeFun))
+    console.warn(`生成树所耗时：${swJs.exTime(swJs.tree.createdTree(dataList1,'children','parentId','id',treeFun))}`)
 
     const dataList2 = [
         {   
@@ -116,7 +117,7 @@
     }
     console.error(`obj11:${swJs.isNull(obj11)},obj22:${swJs.isNull(obj22)},obj33:${swJs.isNull(obj33)},obj44:${swJs.isNull(obj44)},obj55:${swJs.isNull(obj55)}`)
 
-    const num11 = 15.01
+    const num11 = 15.01 
     const num22 = 2.020001
     console.error(`sum函数相加：${swJs.sum(num11,num22)}`)
 
