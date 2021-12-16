@@ -16,7 +16,7 @@
  * @param {function(item,index)} 
  * @desc 方法(项，标)
  */
-const local = {
+const locals = {
     get:(key)=>{
         //当传入的值为number类型时
         if( typeof key === "number" ){
@@ -69,4 +69,4 @@ const local = {
     },
 }
 
-export default local
+export default locals

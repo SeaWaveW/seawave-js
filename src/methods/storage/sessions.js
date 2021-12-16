@@ -16,7 +16,7 @@
  * @param {function(item,index)} 
  * @desc 方法(项，标)
  */
-const session = {
+const sessions = {
     get: (key) => {
         //当传入的值为number类型时
         if( typeof key === "number" ){
@@ -72,4 +72,4 @@ const session = {
     }
 }
 
-export default session
+export default sessions

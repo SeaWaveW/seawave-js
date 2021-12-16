@@ -8,14 +8,41 @@
     <script src="./sw-js.js"></script>
 </head>
 <body>
-    <div id="wrap">#wrap</div>
-    <button id="btn">事件</button>
+    <div id="wrap" style="display: none;">#wrap</div>
+    <button id="btn">swJs事件</button>
+    
+    <div id="print-content">
+        <div>打印我</div>
+        <div class="no-print">不打印我</div>
+        <div class="always">分页</div>
+        <div>打印我</div>
+    </div>
+    <button id="print-button">打印</button>
 </body>
-<script>
+<script type="text/javascript">
+    console.error(!!window.ActiveXObject || 'ActiveXObject ' in window)
     console.error(window['sw-js'])
     var swJs = window['sw-js'].default
     
-    // var count = 0
+    document.getElementById('print-button').onclick = function () {
+        // swJs.print('#print-content')
+        var loading1 = swJs.loading({
+            el: 'body',
+            text: '哈哈'
+        })
+        loading1.start()
+        var loading2 = swJs.loading({
+            el: 'body',
+            background: 'blue',
+            text: '刚刚'
+        })
+        loading2.start()
+        setTimeout(() => {
+            loading2.close()
+        },5000)
+    }
+
+    var count = 0
     // swJs.polling.start('轮询',1000,false,function(){
     //     count++
     //     console.error('轮询次数',count)
@@ -28,125 +55,125 @@
     //     swJs.polling.clear()
     // }
 
-    console.error(swJs.date.formatter('20201005','yyyy-MM-dd'))
+    // console.error(swJs.date.formatter('20201005','yyyy-MM-dd'))
 
-    const ymObj = {
-        year:'2021',
-        month:'10'
-    }
-    console.warn(ymObj.year+'年'+ymObj.month+'月的天数为：' ,swJs.date.getMonthDay(ymObj.year,ymObj.month))
+    // const ymObj = {
+    //     year:'2021',
+    //     month:'10'
+    // }
+    // console.warn(ymObj.year+'年'+ymObj.month+'月的天数为：' ,swJs.date.getMonthDay(ymObj.year,ymObj.month))
 
-    const arr1 = [1,2,3,4,5]
-    const arr2 = [2,5,0,1]
-    const arr3 = [{id:2},{id:4}]
-    const arr4 = [{id:0},{id:2}]
-    console.error(`arr1(${arr1})与arr2(${arr2})的交集为：${swJs.intersection(arr1,arr2)}`,`arr3与arr4的交集为：`,swJs.intersection(arr3,arr4,'id',(item1,item2) => { item1.cc = item2.id } ))
-    const m = 1234
-    console.warn(`金额：${m},对应的中文金额为：${swJs.money(m,'zh')},千分符为：${swJs.money(m,'$')},转金额：${swJs.money(swJs.money(m,'$'),false)}`)
+    // const arr1 = [1,2,3,4,5]
+    // const arr2 = [2,5,0,1]
+    // const arr3 = [{id:2},{id:4}]
+    // const arr4 = [{id:0},{id:2}]
+    // console.error(`arr1(${arr1})与arr2(${arr2})的交集为：${swJs.intersection(arr1,arr2)}`,`arr3与arr4的交集为：`,swJs.intersection(arr3,arr4,'id',(item1,item2) => { item1.cc = item2.id } ))
+    // const m = 1234
+    // console.warn(`金额：${m},对应的中文金额为：${swJs.money(m,'zh')},千分符为：${swJs.money(m,'$')},转金额：${swJs.money(swJs.money(m,'$'),false)}`)
 
-    const typeArr = [{code:'a',desc:'100'},{code:'b',desc:'200'}]
-    console.error(swJs.typeMap(typeArr,'b','code','desc'))
+    // const typeArr = [{code:'a',desc:'100'},{code:'b',desc:'200'}]
+    // console.error(swJs.typeMap(typeArr,'b','code','desc'))
 
-    console.warn(swJs.date.getDifferDay('20211115','20211101'))
+    // console.warn(swJs.date.getDifferDay('20211115','20211101'))
 
-    swJs.watermark({
-        text: 'seawave',
-        family: '微软雅黑',
-        color: 'rgba(0,0,0,0.10)',
-        size: 22,
-        density: 0.5,
-        vessel: [
-            '.sw-watermark'
-        ] 
-    })
+    // swJs.watermark({
+    //     text: 'seawave',
+    //     family: '微软雅黑',
+    //     color: 'rgba(0,0,0,0.10)',
+    //     size: 22,
+    //     density: 0.5,
+    //     vessel: [
+    //         '.sw-watermark'
+    //     ] 
+    // })
 
-    const dataList1 = [
-        { id:1},
-        { id:11,parentId:1 },
-        { id:12,parentId:1 },
-        { id:2 },
-        { id:21,parentId:2 },
-        { id:22,parentId:2 },
-    ]
-    const treeFun = (parent,child) => {
-        child.ccc = '巴嘎'
-        console.error('树的回调：',parent,child)
-    }
-    console.error('生成树：',swJs.tree.createdTree(dataList1,'children','parentId','id',treeFun))
-    console.warn(`生成树所耗时：${swJs.date.exTime(swJs.tree.createdTree(dataList1,'children','parentId','id',treeFun))}`)
+    // const dataList1 = [
+    //     { id:1},
+    //     { id:11,parentId:1 },
+    //     { id:12,parentId:1 },
+    //     { id:2 },
+    //     { id:21,parentId:2 },
+    //     { id:22,parentId:2 },
+    // ]
+    // const treeFun = (parent,child) => {
+    //     child.ccc = '巴嘎'
+    //     console.error('树的回调：',parent,child)
+    // }
+    // console.error('生成树：',swJs.tree.createdTree(dataList1,'children','parentId','id',treeFun))
+    // console.warn(`生成树所耗时：${swJs.date.exTime(swJs.tree.createdTree(dataList1,'children','parentId','id',treeFun))}`)
 
-    const dataList2 = [
-        {   
-            id:1,
-            children:[
-                { id:11,parentId:1 },
-                { id:12,parentId:1 },
-            ]
-        },
+    // const dataList2 = [
+    //     {   
+    //         id:1,
+    //         children:[
+    //             { id:11,parentId:1 },
+    //             { id:12,parentId:1 },
+    //         ]
+    //     },
         
-        { 
-            id:2,
-            children:[
-                { id:21,parentId:2 },
-                { id:22,parentId:2 },
-            ]
-        },
+    //     { 
+    //         id:2,
+    //         children:[
+    //             { id:21,parentId:2 },
+    //             { id:22,parentId:2 },
+    //         ]
+    //     },
         
-    ]
-    console.warn('获取对应项的父级：',swJs.tree.getTreeParent(dataList2,'children',{ id:21,parentId:2 },'parentId','id'))
-    console.warn('获取对应项的父级：',swJs.tree.getTreeParent(dataList2,'children',2,'parentId','id'))
+    // ]
+    // console.warn('获取对应项的父级：',swJs.tree.getTreeParent(dataList2,'children',{ id:21,parentId:2 },'parentId','id'))
+    // console.warn('获取对应项的父级：',swJs.tree.getTreeParent(dataList2,'children',2,'parentId','id'))
 
-    const str11 = ''
-    const str22 = ' '
-    console.error(`str11:${swJs.isNull(str11)},str22:${swJs.isNull(str22)}`)
-    const arr11 = []
-    const arr22 = ['']
-    console.warn(`arr11:${swJs.isNull(arr11)},arr22:${swJs.isNull(arr22)}`)
-    const obj11 = {}
-    const obj22 = {a:''}
-    const obj33 = {a:[]}
-    const obj44 = {
-        a:[
-            {}
-        ]
-    }
-    const obj55 = {
-        a:{
-            b:[]
-        }
-    }
-    console.error(`obj11:${swJs.isNull(obj11)},obj22:${swJs.isNull(obj22)},obj33:${swJs.isNull(obj33)},obj44:${swJs.isNull(obj44)},obj55:${swJs.isNull(obj55)}`)
+    // const str11 = ''
+    // const str22 = ' '
+    // console.error(`str11:${swJs.isNull(str11)},str22:${swJs.isNull(str22)}`)
+    // const arr11 = []
+    // const arr22 = ['']
+    // console.warn(`arr11:${swJs.isNull(arr11)},arr22:${swJs.isNull(arr22)}`)
+    // const obj11 = {}
+    // const obj22 = {a:''}
+    // const obj33 = {a:[]}
+    // const obj44 = {
+    //     a:[
+    //         {}
+    //     ]
+    // }
+    // const obj55 = {
+    //     a:{
+    //         b:[]
+    //     }
+    // }
+    // console.error(`obj11:${swJs.isNull(obj11)},obj22:${swJs.isNull(obj22)},obj33:${swJs.isNull(obj33)},obj44:${swJs.isNull(obj44)},obj55:${swJs.isNull(obj55)}`)
 
-    const num11 = 15.01 
-    const num22 = 2.020001
-    console.error(`sum函数相加：${swJs.sum(num11,num22)}`)
+    // const num11 = 15.01 
+    // const num22 = 2.020001
+    // console.error(`sum函数相加：${swJs.sum(num11,num22)}`)
 
-    const arrSum = [1,2,33.1,4.2]
-    console.warn(`cumsum累加：${swJs.cumsum(arrSum)}`)
+    // const arrSum = [1,2,33.1,4.2]
+    // console.warn(`cumsum累加：${swJs.cumsum(arrSum)}`)
 
-    const arrAI1 = [5,1,2,8,4]
-    const arrAI2 = [
-        {
-            a:1
-        },
-        {
-            a:0
-        },
-        {
-            a:2
-        }
-    ]
-    console.warn(`寻找最大最小：${swJs.maixn(arrAI1)},${swJs.maixn(arrAI1,false)},${swJs.maixn(arrAI2,'a')},${swJs.maixn(arrAI2,'a',false)}`)
+    // const arrAI1 = [5,1,2,8,4]
+    // const arrAI2 = [
+    //     {
+    //         a:1
+    //     },
+    //     {
+    //         a:0
+    //     },
+    //     {
+    //         a:2
+    //     }
+    // ]
+    // console.warn(`寻找最大最小：${swJs.maixn(arrAI1)},${swJs.maixn(arrAI1,false)},${swJs.maixn(arrAI2,'a')},${swJs.maixn(arrAI2,'a',false)}`)
 
-    const strlength = '哈1、s'
-    console.error(`strlength的长度为：${swJs.getLength(strlength,{cn:50})}`)
+    // const strlength = '哈1、s'
+    // console.error(`strlength的长度为：${swJs.getLength(strlength,{cn:50})}`)
     
-    document.getElementById('btn').onclick = function () {
-        swJs.print('#wrap')
-    }
+    // document.getElementById('btn').onclick = function () {
+    //     swJs.print('#wrap')
+    // }
     
-    let chars = 'asdasnk nkjnb bu85'
-    console.error('字符统计：',swJs.charStats(chars))
+    // let chars = 'asdasnk nkjnb bu85'
+    // console.error('字符统计：',swJs.charStats(chars))
     
 </script>
 </html>
