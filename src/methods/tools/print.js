@@ -1,3 +1,5 @@
+import isIE from "./isIE";
+import {isDom} from "./dom";
 /**
  * @method 非ie打印入口
  * @param {Document,Object}
@@ -218,12 +220,9 @@ const print = (dom,option) => {
         onEnd: function () { }, // 打印后方法
     }, option);
     // 判断是否为dom节点
-    const isDom = dom instanceof HTMLElement
-            ||
-            ( typeof dom && dom.nodeType === 1 && typeof dom.nodeName === 'string' )
-    const newDom = isDom ? dom : document.querySelector(dom)
+    const newDom = isDom(dom) ? dom : document.querySelector(dom)
     // 是否为ie浏览器
-    options.isIE = !!window.ActiveXObject || 'ActiveXObject ' in window
+    options.isIE = isIE()
     // 入口
     options.isIE ? yesIEinit(newDom,options) : notIEinit(newDom,options)
 }
