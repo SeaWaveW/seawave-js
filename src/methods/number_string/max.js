@@ -1,7 +1,7 @@
 /**
- * @method 百分比
- * @param { sum, max } 
- * @desc  值，最大值
+ * @method 最大值
+ * @param { sum, max, decimal } 
+ * @desc  值，最大值, 小数点个数
  * @returns { String }
  */
 const max = (sum = '', max = '100', dec = 2) => {
