@@ -11,4 +11,7 @@ r.keys().forEach(key => {
     moduleExports[attr] = r(key).default
 })
 
+import './css/icon';
+
+exports = {...moduleExports}
 export default moduleExports

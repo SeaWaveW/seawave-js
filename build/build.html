@@ -6,44 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./sw-js.js"></script>
-    <style type="text/css">
-        .sw-icon_success{
-            width: 20px;
-            height: 20px;
-            background-color: black;
-            border-radius: 50%;
-            position: relative;
-        }
-        .sw-icon_success::before{
-            content: '';
-            background-color: white;
-            position: absolute;
-            left: 20%;
-            top: 25%;
-            width: 2.5px;
-            height: 7.5px;
-            -moz-transform: translateX(2.5px) rotate(-35deg);
-            -o-transform: translateX(2.5px) rotate(-35deg);
-            -webkit-transform: translateX(2.5px) rotate(-35deg);
-            transform: translateX(2.5px) rotate(-35deg);
-        }
-        .sw-icon_success::after{
-            content: '';
-            background-color: white;
-            position: absolute;
-            left: 20%;
-            top: 25%;
-            width: 2.5px;
-            height: 10px;
-            -moz-transform: translate(5px,-2px) rotate(55deg);
-            -o-transform: translate(5px,-2px) rotate(55deg);
-            -webkit-transform: translate(5px,-2px) rotate(55deg);
-            transform: translate(5px,-2px) rotate(55deg);
-        }
-    </style>
 </head>
 <body>
-    <div class="sw-icon_success"></div>
     <div id="wrap" style="display: none;">#wrap</div>
     <button id="btn">swJs事件</button>
     
@@ -70,7 +34,8 @@
         if(typeof loading1 !== 'object'){
             loading1 = swJs.loading({
                 el: '#print-content',
-                text: '哈哈'
+                text: '哈哈',
+                icon: 'sw-icon-scale'
             })
         }
         loading1.open()

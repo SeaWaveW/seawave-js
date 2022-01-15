@@ -4,7 +4,7 @@
  * @desc  数值，需要补多少个
  * @returns {String}
  */
-    const mendZero = (val,num,) => {
+const mendZero = (val,num) => {
     for(let i=0; i<num; i++){
         val += '0'
     }

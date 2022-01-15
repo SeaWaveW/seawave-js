@@ -39,8 +39,9 @@ const createdChildren = ( list = [], obj = {}, child = 'parentId', parent = 'id'
     const newList = []
     list.forEach((item) => {
         if(item[child] === obj[parent]){
-            // 当有回调函数则先执行回调
+            // 当有回调函数则先执行回调 
             if(typeof callBack === 'function'){
+                // parent,child
                 callBack(obj,item)
             }
             // 添加为子项

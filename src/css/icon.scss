@@ -1,0 +1,37 @@
+.sw-icon_close{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+}
+.sw-icon_close::before{
+    content: '';
+    background-color: #B5B8BF;
+    position: absolute;
+    left: 40.5%;
+    top: 22.5%;
+    width: 12.5%;
+    height: 50%;
+    border-radius: 5px 5px 0 5px;
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.sw-icon_close::after{
+    content: '';
+    background-color: #B5B8BF;
+    position: absolute;
+    left: 40.5%;
+    top: 22.5%;
+    width: 12.5%;
+    height: 50%;
+    border-radius: 5px 5px 0 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
